@@ -1,3 +1,11 @@
+/* * {
+  margin: 0;
+  box-sizing: border-box;
+} */
+
+
+
+/* ESTILOS DE HEADER Y FOOTER */
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +14,285 @@
   background-color: black;
 }
 
-/* ESTILOS DE HEADER Y FOOTER */
+
+:root {
+  --bgprimary: #9f3647;
+  --bgsecundary: rgb(24, 24, 24);
+  --textcolor: white;
+
+}
+
+
+.a-abril {
+  text-decoration: none;
+  color: var(--textcolor);
+}
+
+.body-abril {
+    header {
+        background-color: var(--bgprimary);
+        color: var(--textcolor);
+        height: 10vh;
+        position: sticky;
+        top: 0;
+        
+
+        nav {
+            
+            font-family: 'Nunito', sans-serif;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 4rem;
+            
+            .logo {
+                
+                display: flex;
+                align-items: center;
+                justify-content: center; 
+                text-align: center; 
+                margin-top: 17px;
+                
+               
+                 
+                svg{
+                    height: 1.5rem;
+                    width: 1.5rem;
+                    margin-right: 5px;
+                    
+                    
+                }
+                    
+            }
+        
+             
+            ul {
+                list-style-type: none;
+                display: flex;
+                gap: 1rem;
+
+                li {
+                    font-size: 1.1rem;
+                    padding: 0.5rem 1.5rem;
+                    font-family: 'Nunito', sans-serif;
+                    font-weight: bold; 
+                    border-radius: 0.5rem;
+                    margin-top: 17px;
+                }
+
+                li:hover {
+                    box-shadow: 0 0 2rem var(--bgsecundary);
+                }
+
+                li:last-child {
+                    background-color: var(--bgsecundary);
+                    border-radius: 5px;
+                }
+                li:last-child:hover {
+                    background-color: var(--bgprimary);
+                }
+            }
+        }
+    }
+           
+
+}
+.logo svg,
+.logo span {
+    transition: transform 0.3s ease; 
+}
+.logo:hover svg,
+.logo:hover span {
+    animation: tilt-n-move-shaking 0.3s ease infinite; 
+ }
+
+@keyframes tilt-n-move-shaking {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(5px, 5px) rotate(5deg); }
+    50% { transform: translate(0, 0) rotate(0deg); }
+    75% { transform: translate(-5px, 5px) rotate(-5deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.logo span {
+    font-size: 1.1rem; 
+    font-family: Arial, sans-serif; 
+    font-weight: bold; 
+   
+}
+
+
+.logo:hover svg {
+    transform: scale(1.1); 
+}
+
+.spacer {
+    margin-bottom: 1000px; 
+}
+
+.footer-abril {
+    background-color: rgb(159,54,71);
+    color: #fff;
+    padding: 20px 0;
+}
+  
+.footer-section {
+    flex: 1;
+    margin: 0 20px;
+}
+  
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+  
+.footer-section ul li {
+    margin-bottom: 10px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+  
+.footer-section a {
+    color: #fff;
+    text-decoration: none;
+}
+  
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+  
+.footer-section.links ul {
+    display: flex;
+    gap: 1rem;
+    padding: 0;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+}
+  
+.footer-section.links ul li {
+    list-style-type: none;
+    text-align: center;
+    display: inline-block;
+    margin-right: 20px; 
+}
+  
+.admin-peliculas {
+    background-color: rgb(24,20,25);
+    padding: 0.4rem 1rem;
+    border-radius: 5px;
+}
+.flechaArriba img {
+    width: 30px;
+    height: auto;
+    cursor: pointer;
+    
+}
+  
+.flechaArriba  {
+  
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color: white;
+    cursor: pointer;
+
+}
+  
+
+
+
+    
+
+@media only screen and (max-width: 768px) {
+    body {
+        header {
+            height: initial;
+            
+            nav {
+                flex-direction: column;
+                
+                .header .logo{
+                    font-size: 1.1rem;
+                    font-weight: 700;
+                }
+                .ul li {
+                    font-weight: 400;
+                    margin-right: initial;
+                    font-size: 1rem;
+                    padding: 0.2rem;
+                }
+            } 
+        }
+    }
+
+
+    .footer{
+        height: initial;
+        padding-top:15px;
+        padding-bottom: 20px;
+        .footer-section .links{
+            flex-direction: column;
+            row-gap: 15px;
+           
+        }
+        
+
+        .administradorPeliculas{
+            padding: 0.5rem 0.8rem;
+         }
+            
+    }
+}
+
+
+@media only screen and (max-width: 480px) {
+    .header .search-bar {
+      display: none;
+    }
+    .flechaArriba .search-bar{
+        display: none;
+    }
+}
+  
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .header .logo {
+      width: 50%;
+    }
+}
+
+
+@media only screen and (max-width: 480px) {
+    .footer-content{
+        row-gap: 15px;
+        flex-direction: column;
+        align-items: center;
+        font-weight: 400;
+        margin-right: initial;
+        font-size: 1rem;
+        padding: 0.2rem;
+    }
+}
+/* Reducir el tamaño de la fuente en celulares */
+@media only screen and (max-width: 480px) {
+    .footer-section ul li {
+      font-size: 14px;
+      flex-direction: column;
+        row-gap: 15px;
+    }
+  
+    .footer-section  {
+      font-size: 18px;
+    }
+}
+
+
 
 /* ----------------------------- */
 
