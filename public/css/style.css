@@ -456,7 +456,7 @@ hr {
   margin-bottom: 10px;
   margin-left: auto;
   margin-right: auto;
-  border-color: rgba(217, 6, 6, 0.894);
+  border-color: #9F3647;
 }
 
 .prueba {
@@ -544,6 +544,52 @@ hr {
 /* ----------------------------- */
 /* CARROUSEL */
 
+.carrousel {
+  width: 80vw;
+  margin-left: 10vw;
+  border-top: 2px #9F3647 solid;
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.carrousel img {
+  margin-left: 25px;
+}
+
+.c-img {
+  overflow-x: scroll;
+  display: flex;
+  gap: 1rem;
+}
+
+.c-img::-webkit-scrollbar {
+  width: 20vw;
+}
+
+.c-img::-webkit-scrollbar-thumb {
+  background-color: #9F3647;
+
+}
+
+.carrousel h3 {
+  font-size: 2.1rem;
+  color: white;
+  text-align: center;
+  padding-bottom: 7vh;
+  padding-top: 3vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.carrousel img {
+  width: 10vw;
+  border-radius: 5px;
+  margin-bottom: 5vh;
+
+}
+
+
 /* ----------------------------- */
 
 /* REGISTRO */
@@ -608,6 +654,7 @@ hr {
 }
 
 
+
 /* ----------------------------- */
 
 /* LOGIN */
@@ -616,7 +663,7 @@ hr {
   padding: 1.75rem;
 }
 
-.movies {
+.movies-nico {
   display: flex;
   align-items: center;
   gap: 0.3rem;
