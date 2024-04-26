@@ -1,39 +1,116 @@
 * {
   margin: 0;
   box-sizing: border-box;
+  background-color: black;
 }
-
-
 
 /* ESTILOS DE HEADER Y FOOTER */
 
-
 /* ----------------------------- */
-
-
 
 /* HOME + BUSCADOR */
 
 /* ----------------------------- */
 
+/* TENDENCIAS DE HOY */
+section h3 {
+  color: white;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  text-align: center;
+}
+hr {
+  max-width: 76%;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  border-color: rgba(217, 6, 6, 0.894);
+}
 
+.prueba {
+  height: 100vh;
+}
 
+.conteiner {
+  max-width: 80%;
+  margin: 0 auto;
+  view-timeline-name: --conteiner;
+  view-timeline-axis: block;
+  animation-timeline: --conteiner;
+  animation-name: show;
+  animation-range: entry 20% cover 30%;
+  animation-fill-mode: both;
+}
 
+@keyframes show {
+  from {
+    opacity: 0;
+    scale: 25%;
+  }
+  to {
+    opacity: 1;
+    scale: 100%;
+  }
+}
 
+.div_movies {
+  display: flex;
+  grid-template-columns: repeat(auto-fill, minmax(333px, 1fr));
+  gap: 45px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.movies {
+  width: 200px;
+  height: 300px;
+  border-radius: 10px;
+  transition-duration: 0.5s;
+}
+.movies:hover {
+  scale: 0.9;
+  box-shadow: 0px 0px 23px 10px rgba(158, 0, 0, 0.7);
+  -webkit-box-shadow: 0px 0px 23px 10px rgba(158, 0, 0, 0.7);
+  -moz-box-shadow: 0px 0px 23px 10px rgba(158, 0, 0, 0.7);
+  filter: blur(9px);
+}
+.div_button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: brown;
+  font-size: 18px;
+  color: white;
+  border: white solid 1px;
+  border-radius: 3px;
+  height: 45px;
+  width: 110px;
+  margin: 30px 15px;
+  padding: 15px;
+  transition-duration: 0.25s;
+}
+.buttons:hover {
+  scale: 0.95;
+  background-color: rgba(165, 42, 42, 0.724);
+  box-shadow: 0px 0px 23px 10px rgba(158, 0, 0, 0.7);
+  -webkit-box-shadow: 0px 0px 23px 10px rgba(158, 0, 0, 0.7);
+  -moz-box-shadow: 0px 0px 23px 10px rgba(158, 0, 0, 0.7);
+  transition-duration: 0.5s;
+}
+/* ----------------------------- */
 /* CARROUSEL */
 
 /* ----------------------------- */
 
-
-
-
 /* REGISTRO */
 
 /* ----------------------------- */
-
-
-
-
 
 /* LOGIN */
 
