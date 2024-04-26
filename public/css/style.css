@@ -1,6 +1,8 @@
 * {
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
   background-color: black;
 }
 
@@ -110,8 +112,541 @@ hr {
 
 /* REGISTRO */
 
+.div-form-register {
+  background-color: #2A2A2A;
+  height: 90vh;
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.titulo-register {
+  width: 23vw;
+  color: white;
+  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.form-register {
+  display: flex;
+  flex-direction: column;
+  height: 65vh;
+  width: 23vw;
+}
+
+.terminos-y-condiciones {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.texto-check {
+  margin-left: 10px;
+  color: white;
+  font-size: 0.8rem;
+}
+
+.necesitas-ayuda {
+  display: flex;
+  justify-content: space-between;
+}
+
+.boton-register {
+  width: 92%;
+  box-sizing: content-box;
+  background-color: #9f3647;
+  border: 2px solid #9f3647;
+  color: #ffffff;
+  padding: 1rem 1rem;
+  margin-bottom: .2rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all .5s;
+}
+
+.boton-register:hover {
+  box-shadow: 1px 1px 3px 3px rgb(226, 131, 131);
+}
+
+
 /* ----------------------------- */
 
 /* LOGIN */
+.header-login {
+  height: 8vh;
+  padding: 1.75rem;
+}
+
+.movies {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-weight: 600;
+  font-size: 1.17rem;
+  text-decoration: none;
+  color: white;
+}
+
+.body-login {
+  height: 100vh;
+  background-image: linear-gradient(to right top, #24242473, #24242473), url("../img/bg-register.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.main-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.div-form-login {
+  background-color: #2A2A2A;
+  height: 90vh;
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.aparecer {
+  opacity: 0;
+  /* Inicialmente, el div estará oculto */
+  animation: aparecerAnimacion 1s forwards;
+  /* Aplicamos la animación */
+  transform-origin: center;
+  /* Establecemos el origen de la transformación en el centro del div */
+}
+
+@keyframes aparecerAnimacion {
+
+  /* Definimos el keyframe */
+  from {
+    opacity: 0;
+    /* El div está completamente transparente al principio */
+    transform: scale(0.5);
+    /* El div está reducido a la mitad de su tamaño */
+  }
+
+  to {
+    opacity: 1;
+    /* El div estará completamente visible al final */
+    transform: scale(1);
+    /* El div vuelve a su tamaño original */
+  }
+}
+
+.form-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 30vh;
+  width: 22vw;
+}
+
+.inputs {
+  border-radius: 2rem;
+  border: 2px solid #9f3647;
+  height: 2.6rem;
+  width: 100%;
+  padding: 0px 22px;
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
+  background-color: #333333;
+  color: rgb(255, 255, 255);
+  outline: none;
+}
+
+.titulo-login {
+  width: 23vw;
+  color: white;
+  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.boton-login {
+  width: 93%;
+  box-sizing: content-box;
+  background-color: #9f3647;
+  border: 2px solid #9f3647;
+  color: #ffffff;
+  padding: 1rem 1rem;
+  margin-bottom: .2rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all .5s;
+}
+
+.anchor-button-login {
+  align-self: flex-start;
+  width: 93%;
+}
+
+.boton-login:hover {
+  box-shadow: 1px 1px 3px 3px rgb(226, 131, 131);
+}
+
+button a {
+  color: white;
+  text-decoration: none;
+}
+
+.registro-form {
+  color: #787878;
+  align-self: flex-start;
+  text-decoration: none;
+  transition: all .5s;
+}
+
+.registro-form:hover {
+  color: white
+}
 
 /* ----------------------------- */
+
+
+/* DETAIL */
+
+.body-detail {
+  background-color: #181419;
+}
+
+.header-detail {
+  background-color: #9F3647;
+  height: 10vh;
+  top: 0;
+  position: sticky;
+}
+
+.footer-detail {
+  background-color: #9F3647;
+  height: 15vh;
+}
+
+.main-detail {
+  height: 150vh;
+
+}
+
+.section-1 {
+  padding-top: 50px;
+  background: linear-gradient(to right top, #6d6969a7, #6d6969a7), url("../img/mario-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+}
+
+.img-mario {
+  border-radius: 20px;
+  height: 450px;
+  width: 300px;
+}
+
+.contenedor-texto-detail {
+  width: 51%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  color: white;
+}
+
+.titulo-mario {
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+}
+
+.titulo-mario h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+.overview {
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+}
+
+.overview p {
+  line-height: 1.5rem;
+}
+
+.div-diseñadores {
+  display: flex;
+  justify-content: space-between;
+}
+
+.aaron {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.michael {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.matthew {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+
+@keyframes show {
+  from {
+    opacity: 0;
+    scale: 25%;
+  }
+
+  to {
+    opacity: 1;
+    scale: 100%;
+  }
+}
+
+.section-2 {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  view-timeline-name: --section2;
+  view-timeline-axis: block;
+
+  animation-timeline: --section2;
+  animation-name: show;
+
+  animation-range: entry 25% cover 50%;
+  animation-fill-mode: both;
+}
+
+
+.trailer h1 {
+  color: white;
+}
+
+.info {
+  width: 23vw;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.socials {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info p {
+  text-align: center;
+  color: white;
+  font-weight: 600;
+}
+
+.keys-propertys {
+  display: flex;
+  color: white;
+  justify-content: space-between;
+}
+
+.keys {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.keys h3 {
+  font-weight: 600;
+}
+
+.propertys {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.propertys h3 {
+  font-weight: lighter;
+}
+
+/* ______________________________ */
+
+
+
+
+
+/* MEDIA QUERYS */
+
+
+@media (max-width: 1200px) {
+
+  .header-login {
+    display: flex;
+  }
+
+  .icon-movie {
+    width: 12px;
+  }
+
+  .movies {
+    font-size: 1rem;
+  }
+
+  /* REGISTRO */
+
+  .div-form-register {
+    width: 95vw;
+  }
+
+  .titulo-register {
+    text-align: center;
+    font-size: 1.8rem;
+  }
+
+  .form-register {
+    width: 70vw;
+    height: 70vh;
+  }
+
+
+  .inputs {
+    height: 2.8rem;
+    font-size: 1rem;
+  }
+
+  .boton-register {
+    font-size: 1rem;
+  }
+
+  .anchor-button {
+    width: 95%;
+    align-self: center;
+  }
+
+  .necesitas-ayuda {
+    width: 95%;
+  }
+
+  /* ____________ */
+
+  /*LOGIN  */
+
+  .main-login {
+    display: flex;
+    align-items: center;
+  }
+
+  .div-form-login {
+    width: 95vw;
+  }
+
+  .form-login {
+    width: 70vw;
+    height: 40vh;
+  }
+
+  .titulo-login {
+    width: 100%;
+    text-align: center;
+    font-size: 1.7rem;
+  }
+
+  .anchor-button-login {
+    margin: 20px;
+    width: 90%;
+    align-self: center;
+  }
+
+  .boton-login {
+    font-size: .8rem;
+  }
+
+  .registro-form {
+    align-self: center;
+  }
+
+  /* ______________ */
+
+  /* DETAIL */
+  .main-detail {
+    height: initial;
+  }
+
+  .section-1 {
+    height: initial;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contenedor-texto-detail {
+    margin-bottom: 1rem;
+  }
+
+  .titulo-mario h1 {
+    font-size: 1.5rem;
+  }
+
+  .overview h2 {
+    font-size: 1.2rem;
+  }
+
+  .img-mario {
+    width: 200px;
+    height: 300px;
+  }
+
+  .section-2 {
+    height: initial;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .trailer {
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+
+  .video {
+    width: 90vw;
+  }
+
+  .info {
+    width: 90vw;
+  }
+
+  .keys-propertys {
+    justify-content: space-evenly;
+    margin-bottom: 1rem;
+  }
+
+  .keys {
+    font-size: 14px;
+    gap: 1rem;
+  }
+
+  .propertys {
+    font-size: 14px;
+    gap: 1rem;
+  }
+
+  /* ____________ */
+}
