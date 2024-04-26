@@ -6,6 +6,7 @@
   background-color: black;
 }
 
+
 /* ESTILOS DE HEADER Y FOOTER */
 
 /* ----------------------------- */
@@ -107,6 +108,49 @@ hr {
 }
 /* ----------------------------- */
 /* CARROUSEL */
+.bg-carrousel {
+  margin-top: 5vh;
+
+}
+
+.carrousel {
+  width: 80vw;
+  margin-left: 10vw;
+  border-top: 2px rgb(189, 80, 80) solid;
+
+}
+
+.c-img {
+  overflow-x: scroll;
+  display: flex;
+  gap: 1rem;
+}
+
+.c-img::-webkit-scrollbar {
+  width: 20vw;
+}
+
+.c-img::-webkit-scrollbar-thumb {
+  background-color: rgb(189, 80, 80);
+
+}
+
+.carrousel h3 {
+  font-size: 2.1rem;
+  color: white;
+  text-align: center;
+  padding-bottom: 7vh;
+  padding-top: 3vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.carrousel img {
+  width: 10vw;
+  border-radius: 5px;
+  margin-bottom: 5vh;
+
+}
+
 
 /* ----------------------------- */
 
@@ -170,6 +214,7 @@ hr {
 .boton-register:hover {
   box-shadow: 1px 1px 3px 3px rgb(226, 131, 131);
 }
+
 
 
 /* ----------------------------- */
