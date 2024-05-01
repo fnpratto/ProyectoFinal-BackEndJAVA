@@ -213,16 +213,13 @@
           margin-right: initial;
           font-size: 1rem;
           padding: 0.2rem;
-          gap:1rem;
+          gap: 1rem;
         }
       }
     }
   }
 
-
-
   .footer-abril {
-
     height: initial;
     padding-top: 15px;
     padding-bottom: 20px;
@@ -232,17 +229,11 @@
       row-gap: 15px;
     }
 
-
-
     .admin-peliculas {
-
-  
       padding: 0.5rem 0.8rem;
     }
   }
 }
-
-
 
 @media only screen and (min-width: 320px) and (max-width: 540px) {
   /*+.header .search-bar {
@@ -253,30 +244,26 @@
   .flechaArriba .search-bar {
     display: none;
   }*/
-  .nav{
+  .nav {
     margin: 0 1rem;
     .logo {
       margin: 5px 0;
     }
     ul {
-      gap: 1rem; 
+      gap: 1rem;
     }
-  
+
     li {
-      padding: 0.75rem 1.5rem; 
-      
-      border-radius: 0.75rem; 
-      margin-top: 20px; 
+      padding: 0.75rem 1.5rem;
+
+      border-radius: 0.75rem;
+      margin-top: 20px;
     }
-
   }
-  .a-abril{
-   font-size: 0.7rem;
+  .a-abril {
+    font-size: 0.7rem;
   }
-  
 }
-
-
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
   .header .logo {
@@ -284,10 +271,7 @@
   }
 }
 
-
-
 @media only screen and (max-width: 400px) {
-
   .footer-content {
     row-gap: 15px;
     flex-direction: column;
@@ -296,7 +280,6 @@
     margin-right: initial;
     font-size: 1rem;
     padding: 0.2rem;
-    
   }
   .footer-section-links ul li {
     font-size: 14px;
@@ -308,7 +291,6 @@
     font-size: 18px;
   }
 }
-
 
 /* ----------------------------- */
 
@@ -355,7 +337,7 @@ h2 {
       opacity: 0;
       animation: aparecerAnimacion 1s forwards;
       transform-origin: center;
-      
+
       .h1-jonathan & .h2-jonathan {
         text-align: center;
       }
@@ -955,7 +937,6 @@ button a {
 /* MEDIA QUERYS */
 
 @media (max-width: 1200px) {
-
   .header-login {
     display: flex;
   }
@@ -1107,6 +1088,5 @@ button a {
     gap: 1rem;
   }
 
-
-  /* ____________ */ 
+  /* ____________ */
 }
