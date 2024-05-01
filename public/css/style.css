@@ -124,6 +124,7 @@
   background-color: rgb(159, 54, 71);
   color: #fff;
   padding: 20px 0;
+  width: 100vw;
 }
 
 .footer-section {
@@ -193,16 +194,18 @@
 }
 
 @media only screen and (max-width: 768px) {
-  body {
+  .body-abril {
     header {
       height: initial;
 
       nav {
         flex-direction: column;
+        margin: 0 2rem;
 
-        .header .logo {
+        .logo a-abril {
           font-size: 1.1rem;
           font-weight: 700;
+          margin: 10px 0;
         }
 
         .ul li {
@@ -210,12 +213,16 @@
           margin-right: initial;
           font-size: 1rem;
           padding: 0.2rem;
+          gap:1rem;
         }
       }
     }
   }
 
-  .footer {
+
+
+  .footer-abril {
+
     height: initial;
     padding-top: 15px;
     padding-bottom: 20px;
@@ -225,21 +232,51 @@
       row-gap: 15px;
     }
 
-    .administradorPeliculas {
+
+
+    .admin-peliculas {
+
+  
       padding: 0.5rem 0.8rem;
     }
   }
 }
 
-@media only screen and (max-width: 480px) {
-  .header .search-bar {
+
+
+@media only screen and (min-width: 320px) and (max-width: 540px) {
+  /*+.header .search-bar {
+
     display: none;
   }
 
   .flechaArriba .search-bar {
     display: none;
+  }*/
+  .nav{
+    margin: 0 1rem;
+    .logo {
+      margin: 5px 0;
+    }
+    ul {
+      gap: 1rem; 
+    }
+  
+    li {
+      padding: 0.75rem 1.5rem; 
+      
+      border-radius: 0.75rem; 
+      margin-top: 20px; 
+    }
+
   }
+  .a-abril{
+   font-size: 0.7rem;
+  }
+  
 }
+
+
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
   .header .logo {
@@ -247,7 +284,10 @@
   }
 }
 
-@media only screen and (max-width: 480px) {
+
+
+@media only screen and (max-width: 400px) {
+
   .footer-content {
     row-gap: 15px;
     flex-direction: column;
@@ -256,12 +296,9 @@
     margin-right: initial;
     font-size: 1rem;
     padding: 0.2rem;
+    
   }
-}
-
-/* Reducir el tamaño de la fuente en celulares */
-@media only screen and (max-width: 480px) {
-  .footer-section ul li {
+  .footer-section-links ul li {
     font-size: 14px;
     flex-direction: column;
     row-gap: 15px;
@@ -271,6 +308,7 @@
     font-size: 18px;
   }
 }
+
 
 /* ----------------------------- */
 
