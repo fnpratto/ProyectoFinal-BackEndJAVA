@@ -4,6 +4,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Nunito", sans-serif;
+  color: white;
 }
 
 :root {
@@ -12,12 +13,12 @@
   --textcolor: white;
 }
 
-.a-abril {
+nav ul li a {
   text-decoration: none;
   color: var(--textcolor);
 }
 
-.body-abril {
+body {
   header {
     background-color: var(--bgprimary);
     color: var(--textcolor);
@@ -120,9 +121,8 @@
   transform: scale(1.1);
 }
 
-.footer-abril {
+footer {
   background-color: rgb(159, 54, 71);
-  color: #fff;
   padding: 20px 0;
 }
 
@@ -144,7 +144,6 @@
 }
 
 .footer-section a {
-  color: #fff;
   text-decoration: none;
 }
 
@@ -193,7 +192,7 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .body-abril {
+  body {
     header {
       height: initial;
 
@@ -201,7 +200,7 @@
         flex-direction: column;
         margin: 0 2rem;
 
-        .logo a-abril {
+        .logo {
           font-size: 1.1rem;
           font-weight: 700;
           margin: 10px 0;
@@ -218,7 +217,7 @@
     }
   }
 
-  .footer-abril {
+  footer {
     height: initial;
     padding-top: 15px;
     padding-bottom: 20px;
@@ -263,7 +262,7 @@
     }
   }
 
-  .a-abril {
+  nav ul li a {
     font-size: 0.7rem;
   }
 }
@@ -301,28 +300,25 @@
 /* HOME + BUSCADOR */
 a {
   text-decoration: none;
-  color: #ffffff;
 }
 
 h1 {
-  color: white;
   font-size: 3rem;
   font-weight: 900;
   margin-bottom: 1rem;
 }
 
 h2 {
-  color: white;
   font-size: 2rem;
   font-weight: 400;
   margin-bottom: 1rem;
 }
 
-.body-jonathan {
+body {
   background-color: #181419;
 
-  .main-jonathan {
-    .section-jonathan {
+  .main-index {
+    .section-banner {
       background-repeat: no-repeat;
       background-size: cover;
       background-blend-mode: soft-light;
@@ -341,13 +337,12 @@ h2 {
       animation: aparecerAnimacion 1s forwards;
       transform-origin: center;
 
-      .h1-jonathan & .h2-jonathan {
+      h1 & h2 {
         text-align: center;
       }
 
       .mainReg {
         background-color: #9f3647;
-        color: #ffffff;
         padding: 1rem 2rem;
         border-radius: 5px;
         font-size: 1.2rem;
@@ -400,7 +395,6 @@ h2 {
         .botonBuscar {
           background-color: #9f3647;
           display: inline-block;
-          color: #ffffff;
           height: 50px;
           margin: 20px 10px;
           padding: 0 20px;
@@ -504,7 +498,6 @@ hr {
   align-items: center;
   background-color: brown;
   font-size: 18px;
-  color: white;
   border: white solid 1px;
   border-radius: 3px;
   height: 45px;
@@ -555,7 +548,6 @@ hr {
 
 .carrousel h3 {
   font-size: 2.1rem;
-  color: white;
   text-align: center;
   padding-bottom: 7vh;
   padding-top: 3vh;
@@ -584,7 +576,6 @@ hr {
 
 .titulo-register {
   width: 23vw;
-  color: white;
   margin-bottom: 1.5rem;
   font-size: 2.5rem;
   font-weight: 700;
@@ -604,7 +595,6 @@ hr {
 
 .texto-check {
   margin-left: 10px;
-  color: white;
   font-size: 0.8rem;
 }
 
@@ -618,7 +608,6 @@ hr {
   box-sizing: content-box;
   background-color: #9f3647;
   border: 2px solid #9f3647;
-  color: #ffffff;
   padding: 1rem 1rem;
   margin-bottom: 0.2rem;
   border-radius: 5px;
@@ -639,7 +628,7 @@ hr {
   padding: 1.75rem;
 }
 
-.movies-nico {
+.redireccion-index {
   display: flex;
   align-items: center;
   gap: 0.3rem;
@@ -723,7 +712,6 @@ hr {
 
 .titulo-login {
   width: 23vw;
-  color: white;
   margin-bottom: 1.5rem;
   font-size: 2.5rem;
   font-weight: 700;
@@ -734,7 +722,6 @@ hr {
   box-sizing: content-box;
   background-color: #9f3647;
   border: 2px solid #9f3647;
-  color: #ffffff;
   padding: 1rem 1rem;
   margin-bottom: 0.2rem;
   border-radius: 5px;
@@ -816,7 +803,6 @@ button a {
   flex-direction: column;
   justify-content: center;
   gap: 1rem;
-  color: white;
 }
 
 .titulo-mario {
@@ -891,10 +877,6 @@ button a {
   animation-fill-mode: both;
 }
 
-.trailer h1 {
-  color: white;
-}
-
 .info {
   width: 23vw;
   height: 40vh;
@@ -913,14 +895,12 @@ button a {
 
 .info p {
   text-align: center;
-  color: white;
   font-weight: 600;
 }
 
 .keys-propertys {
   height: 40vh;
   display: flex;
-  color: white;
   justify-content: space-between;
 }
 
@@ -1108,7 +1088,7 @@ button a {
     height: 258vh;
   }
 
-  .footer-abril a {
+  footer a {
     font-size: 1rem;
   }
 }
@@ -1118,12 +1098,12 @@ button a {
     height: 270vh;
   }
 
-  .footer-abril ul {
+  footer ul {
     display: flex;
     flex-direction: column;
   }
 
-  .footer-abril a {
+  footer a {
     font-size: 1rem;
   }
 
@@ -1137,11 +1117,11 @@ button a {
     }
   }
 
-  .h1-jonathan {
+  h1 {
     font-size: 2rem;
   }
 
-  .h2-jonathan {
+  h2 {
     font-size: 1.5rem;
   }
 
@@ -1156,16 +1136,20 @@ button a {
     height: 290vh;
   }
 
-  .header-abril nav ul {
+  nav ul {
     display: flex;
     justify-content: space-around;
   }
 
-  .h1-jonathan {
+  h1 {
     font-size: 2rem;
   }
 
-  .h2-jonathan {
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .tituloSeccion {
     font-size: 1.5rem;
   }
 
@@ -1193,12 +1177,12 @@ button a {
     font-size: 1rem;
   }
 
-  .footer-abril ul {
+  footer ul {
     display: flex;
     flex-direction: column;
   }
 
-  .footer-abril a {
+  footer a {
     font-size: .9rem;
   }
 }
@@ -1213,12 +1197,24 @@ button a {
     width: 20vw;
   }
 
-  .footer-abril ul {
+  h1 {
+    font-size: 1rem;
+  }
+
+  h2 {
+    font-size: 0.5rem;
+  }
+
+  .tituloSeccion {
+    font-size: 0.5rem;
+  }
+
+  footer ul {
     display: flex;
     flex-direction: column;
   }
 
-  .footer-abril a {
+  footer a {
     font-size: .8rem;
   }
 }
