@@ -21,24 +21,30 @@ public class PeliculaServlet extends HttpServlet {
 
     private PeliculaDAO peliculaDAO = new PeliculaDAO();
 
-
     private ObjectMapper objectMapper = new ObjectMapper();
-    
-    
     
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Pelicula> peliculas = peliculaDAO.getAllPeliculas();
-        /*  Gson gson = new Gson();
-        String peliculasJson = gson.toJson(peliculas);
-        resp.getWriter().println(peliculasJson);*/
+
+        req.setCharacterEncoding("UTF-8");
+        req.setCharacterEncoding("UTF-8");
+        try	{
+            List<Pelicula> peliculas = peliculaDAO.getAllPeliculas();
+            String jsonResponse = objectMapper.writeValueAsString(peliculas);
+            resp.setContentType("application/json");
+            resp.getWriter().write(jsonResponse);
+        } catch (NumberFormatException e) {
+            resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "Ocurrio un error al obtener las peliculas");
+            e.printStackTrace();
+        }
+
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setHeader("Acess-Control-Allow-Origin", "*");
+        /*resp.setHeader("Acess-Control-Allow-Origin", "*");
         resp.setHeader("Acess-Control-Allow-Methods", "*");
-        resp.setHeader("Acces-Control-Alloc_Headers", "Content-Type");
+        resp.setHeader("Acces-Control-Alloc_Headers", "Content-Type");*/
 
         req.setCharacterEncoding("UTF-8");
         req.setCharacterEncoding("UTF-8");
@@ -57,6 +63,5 @@ public class PeliculaServlet extends HttpServlet {
 
         resp.setStatus(HttpServletResponse.SC_CREATED);
 
-        super.doPost(req, resp);
     }
 }

@@ -2,8 +2,8 @@ package com.ar.apimovies;
 
 public class Pelicula {
 
-    private long idPelicula;  //getIdPelicula();
-    private String titulo ; // getTitulo();
+    private Long idPelicula;  
+    private String titulo ;
     private String description;
     private String duracion;
     private String genero;
