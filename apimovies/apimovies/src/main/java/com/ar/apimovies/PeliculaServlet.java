@@ -16,6 +16,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 //import com.fasterxml.jackson.datablind.ObjectMapper;
 
+//END-POINT: http://localhost:8080/apimovies/peliculas
+
 @WebServlet("/peliculas") /*http://elServidor/peliculas */
 public class PeliculaServlet extends HttpServlet {
 
