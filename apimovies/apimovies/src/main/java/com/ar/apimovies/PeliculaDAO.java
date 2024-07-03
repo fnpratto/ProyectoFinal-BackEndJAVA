@@ -5,6 +5,7 @@ import java.util.List;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 
 public class PeliculaDAO {
@@ -22,9 +23,15 @@ public class PeliculaDAO {
         try {
             pstm = cn.prepareStatement(insertarPeliculaSql);
             pstm.setString(1, pelicula.getTitulo());
-            pstm.setString(2, pelicula.getGenero());
-            pstm.setString(3, pelicula.getDuracion());
-            pstm.setString(4, pelicula.getImagen());
+            pstm.setDate(2, java.sql.Date.valueOf(pelicula.getFechaLanzamiento()));
+            pstm.setString(3, pelicula.getGenero());
+            pstm.setInt(4, pelicula.getDuracion());
+            pstm.setString(5, pelicula.getReparto());
+            pstm.setString(6, pelicula.getSinapsis());
+            pstm.setInt(7, pelicula.getDirector());
+            pstm.setString(8, pelicula.getImagen());
+            pstm.setBoolean(9, pelicula.isActivo());
+
             int result = pstm.executeUpdate();
 
             if (result > 0 ){
@@ -60,16 +67,19 @@ public class PeliculaDAO {
             pstm = cn.prepareStatement(selectPeliculasSql);
             rs = pstm.executeQuery(); // Correct usage for PreparedStatement
 
-            while (rs.next()){
-                Long idPel = rs.getLong("idPelicula"); // no  acepte columnLabel:
-                String tit = rs.getString("titulo");
-                String gen = rs.getString("genero");
-                String dir = rs.getString("director");
-                String dur = rs.getString("duracion");
-                String imag = rs.getString("imagen");
+            while (rs.next()) {
+                int idPelicula = rs.getInt("id_pelicula");
+                String titulo = rs.getString("Nombre");
+                String fechaLanzamiento = rs.getDate("fecha_lanzamiento").toString();
+                String genero = rs.getString("genero");
+                int duracion = rs.getInt("duracion");
+                String reparto = rs.getString("reparto");
+                String sinapsis = rs.getString("sinapsis");
+                int director = rs.getInt("director");
+                String imagen = rs.getString("imagen");
+                boolean activo = rs.getBoolean("activo");
 
-                Pelicula pelicula = new Pelicula(idPel,tit,gen,dir,dur,imag);
-
+                Pelicula pelicula = new Pelicula(idPelicula, titulo, fechaLanzamiento, genero, duracion, reparto, sinapsis, director, imagen, activo);
                 peliculas.add(pelicula);
             }
 
@@ -77,6 +87,28 @@ public class PeliculaDAO {
         }catch (Exception e){
             e.printStackTrace();
             return null;
+        }
+    }
+
+    public void desactivarPelicula(Long idPelicula) {
+        DatabaseConnection conexion = new DatabaseConnection();
+        Connection cn = conexion.conectar();
+
+        String updateQuery = "UPDATE movies SET activo = false WHERE id_movie = ?";
+
+        try (PreparedStatement pstm = cn.prepareStatement(updateQuery)) {
+            pstm.setLong(1, idPelicula);
+
+            int result = pstm.executeUpdate();
+
+            if (result > 0) {
+                System.out.println("Película desactivada exitosamente.");
+            } else {
+                System.out.println("No se encontró una película con el ID especificado.");
+            }
+        } catch (SQLException e) {
+            System.err.println("Error al desactivar la película");
+            e.printStackTrace();
         }
     }
 }

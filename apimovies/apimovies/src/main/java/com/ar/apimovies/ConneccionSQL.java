@@ -36,7 +36,7 @@ public class ConneccionSQL {
             do {
                 System.out.println("\nSeleccione una opción:");
                 System.out.println("1. Insertar una nuevo pelicula");
-                System.out.println("2. Actualizar los datos de la pelicula");
+                System.out.println("2. Activar una pelicula");
                 System.out.println("3. Eliminar una pelicula");
                 System.out.println("4. Listar todas las peliculas");
                 System.out.println("5. Salir");
@@ -78,27 +78,39 @@ public class ConneccionSQL {
     private static void insertarPelicula(Connection cn, Scanner scan) {
         System.out.println("Ingrese el título de la película: ");
         String titulo = scan.next();
-        System.out.println("Ingrese la descripción: ");
-        String description = scan.next();
-        System.out.println("Ingrese la duración: ");
-        String duracion = scan.next();
+        System.out.println("Ingrese la fecha de lanzamiento (YYYY-MM-DD): ");
+        String fechaLanzamiento = scan.next();
         System.out.println("Ingrese el género: ");
         String genero = scan.next();
+        System.out.println("Ingrese la duración (en minutos): ");
+        int duracion = scan.nextInt();
+        System.out.println("Ingrese el reparto: ");
+        String reparto = scan.next();
+        System.out.println("Ingrese la sinapsis: ");
+        String sinapsis = scan.next();
+        System.out.println("Ingrese el ID del director: ");
+        int director = scan.nextInt();
         /*System.out.println("Ingrese la URL de la imagen: ");
         String imagen = scan.next();*/
+        System.out.println("¿La película está activa? (true/false): ");
+        boolean activo = scan.nextBoolean();
 
-        String insertQuery = "INSERT INTO peliculas (titulo, description, duracion, genero) VALUES (?, ?, ?, ?)";
+        String insertQuery = "INSERT INTO movies (Nombre, fecha_lanzamiento, genero, duracion, reparto, sinapsis, director, activo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (PreparedStatement pstm = cn.prepareStatement(insertQuery)) {
-            pstm.setString(1, titulo);
-            pstm.setString(2, description);
-            pstm.setString(3, duracion);
-            pstm.setString(4, genero);
-            //pstm.setString(5, imagen);
+            pstm.setDate(1, java.sql.Date.valueOf(fechaLanzamiento));
+            pstm.setString(2, genero);
+            pstm.setInt(3, duracion);
+            pstm.setString(4, reparto);
+            pstm.setString(5, sinapsis);
+            pstm.setInt(6, director);
+            //pstm.setString(7, imagen);
+            pstm.setBoolean(8, activo);
+            pstm.setString(9, titulo);
 
             pstm.executeUpdate();
 
-            System.out.println("Usuario insertado exitosamente.");
+            System.out.println("Pelicula insertada exitosamente.");
 
         } catch (SQLException e) {
 
@@ -107,26 +119,41 @@ public class ConneccionSQL {
         }
     }
 
+    //Esta funcion puede estar para activar peliculas
     private static void actualizarPelicula(Connection cn, Scanner scan) {
+
+
         System.out.println("Ingrese el título de la película a actualizar: ");
         String titulo = scan.next();
-        System.out.println("Ingrese la nueva descripción: ");
-        String description = scan.next();
-        System.out.println("Ingrese la nueva duración: ");
-        String duracion = scan.next();
+       /* System.out.println("Ingrese la nueva fecha de lanzamiento (YYYY-MM-DD): ");
+        String fechaLanzamiento = scan.next();
         System.out.println("Ingrese el nuevo género: ");
         String genero = scan.next();
+        System.out.println("Ingrese la nueva duración (en minutos): ");
+        int duracion = scan.nextInt();
+        System.out.println("Ingrese el nuevo reparto: ");
+        String reparto = scan.next();
+        System.out.println("Ingrese la nueva sinapsis: ");
+        String sinapsis = scan.next();
+        System.out.println("Ingrese el nuevo ID del director: "); // TO-DO Cambiar por el nombre del director??
+        int director = scan.nextInt();*/
         /*System.out.println("Ingrese la nueva URL de la imagen: ");
         String imagen = scan.next();*/
+        System.out.println("Desea activar la pelicula (true/false): ");
+        boolean activo = scan.nextBoolean();
 
-        String updateQuery = "UPDATE peliculas SET description = ?, duracion = ?, genero = ?,  WHERE titulo = ?";
+        String updateQuery = "UPDATE movies SET activo = ? WHERE Nombre = ?";
 
         try (PreparedStatement pstm = cn.prepareStatement(updateQuery)) {
-            pstm.setString(1, description);
-            pstm.setString(2, duracion);
-            pstm.setString(3, genero);
-            //pstm.setString(4, imagen);
-            pstm.setString(5, titulo);
+            /*pstm.setDate(1, java.sql.Date.valueOf(fechaLanzamiento));
+            pstm.setString(2, genero);
+            pstm.setInt(3, duracion);
+            pstm.setString(4, reparto);
+            pstm.setString(5, sinapsis);
+            pstm.setInt(6, director);
+            pstm.setString(7, imagen);*/
+            pstm.setBoolean(8, activo);
+            pstm.setString(9, titulo);
 
             int result = pstm.executeUpdate();
 
@@ -141,6 +168,8 @@ public class ConneccionSQL {
         }
     }
 
+
+    //desactivar
     private static void eliminarPelicula(Connection cn, Scanner scan) {
 
         List<Pelicula> peliculas = listarPeliculas(cn);
@@ -150,23 +179,23 @@ public class ConneccionSQL {
             System.out.println("ID: " + pelicula.getIdPelicula() + ", Título: " + pelicula.getTitulo());
         }
 
-        System.out.println("Ingrese el ID de la película a eliminar: "); 
+        System.out.println("Ingrese el ID de la película a desactivar: "); 
         int id = scan.nextInt();
 
-        String deleteQuery = "DELETE FROM peliculas WHERE idPelicula = ?";
+        String updateQuery = "UPDATE movies SET activo = false WHERE id_movie = ?";
 
-        try (PreparedStatement pstm = cn.prepareStatement(deleteQuery)) {
-            pstm.setInt(1, id);
-
+        try (PreparedStatement pstm = cn.prepareStatement(updateQuery)) {
+            pstm.setLong(1, id);
+    
             int result = pstm.executeUpdate();
-
+    
             if (result > 0) {
-                System.out.println("Película eliminada exitosamente.");
+                System.out.println("Película desactivada exitosamente.");
             } else {
                 System.out.println("No se encontró una película con el ID especificado.");
             }
         } catch (SQLException e) {
-            System.err.println("Error al eliminar la película");
+            System.err.println("Error al desactivar la película");
             e.printStackTrace();
         }
     }
@@ -175,21 +204,24 @@ public class ConneccionSQL {
 
         List<Pelicula> peliculas = new ArrayList<>();
 
-        String selectQuery = "SELECT idPelicula, titulo, description, duracion, genero FROM peliculas";
-
+        String selectQuery = "SELECT id_movie, Nombre, fecha_lanzamiento, genero, duracion, reparto, sinapsis, director, imagen FROM movies WHERE activo = true";
 
         try (Statement stm = cn.createStatement();
              ResultSet rs = stm.executeQuery(selectQuery)) {
 
             while (rs.next()) {
                 int idPelicula = rs.getInt("idPelicula");
-                String titulo = rs.getString("titulo");
-                String description = rs.getString("description");
-                String duracion = rs.getString("duracion");
+                String titulo = rs.getString("Nombre");
+                String fechaLanzamiento = rs.getDate("fecha_lanzamiento").toString();
                 String genero = rs.getString("genero");
+                int duracion = rs.getInt("duracion");
+                String reparto = rs.getString("reparto");
+                String sinapsis = rs.getString("sinapsis");
+                int director = rs.getInt("director");
                 String imagen = rs.getString("imagen");
+                //boolean activo = rs.getBoolean("activo");
 
-                Pelicula pelicula = new Pelicula(idPelicula, titulo, description, duracion, genero, imagen);
+                Pelicula pelicula = new Pelicula(idPelicula, titulo, fechaLanzamiento, genero, duracion, reparto, sinapsis, director, imagen, true);
                 peliculas.add(pelicula);
             }
         } catch (SQLException e) {

@@ -3,24 +3,33 @@ package com.ar.apimovies;
 public class Pelicula {
 
     private int idPelicula;  
-    private String titulo ;
-    private String description;
-    private String duracion;
+    private String titulo;
+    private String fechaLanzamiento;
     private String genero;
+    private int duracion;
+    private String reparto;
+    private String sinapsis;
+    private int director; //TO-DO seguros??
     private String imagen;
+    private boolean activo;
+
 
     public Pelicula(){
 
 
     }
 
-    public Pelicula(int idPelicula, String titulo, String description, String duracion, String genero, String imagen) {
+    public Pelicula(int idPelicula, String titulo, String fechaLanzamiento, String genero, int duracion, String reparto, String sinapsis, int director, String imagen, boolean activo) {
         this.idPelicula = idPelicula;
         this.titulo = titulo;
-        this.description = description;
-        this.duracion = duracion;
+        this.fechaLanzamiento = fechaLanzamiento;
         this.genero = genero;
+        this.duracion = duracion;
+        this.reparto = reparto;
+        this.sinapsis = sinapsis;
+        this.director = director;
         this.imagen = imagen;
+        this.activo = activo;
     }
 
     public int getIdPelicula() {
@@ -39,20 +48,12 @@ public class Pelicula {
         this.titulo = titulo;
     }
 
-    public String getDescription() {
-        return description;
+    public String getFechaLanzamiento() {
+        return fechaLanzamiento;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getDuracion() {
-        return duracion;
-    }
-
-    public void setDuracion(String duracion) {
-        this.duracion = duracion;
+    public void setFechaLanzamiento(String fechaLanzamiento) {
+        this.fechaLanzamiento = fechaLanzamiento;
     }
 
     public String getGenero() {
@@ -63,6 +64,38 @@ public class Pelicula {
         this.genero = genero;
     }
 
+    public int getDuracion() {
+        return duracion;
+    }
+
+    public void setDuracion(int duracion) {
+        this.duracion = duracion;
+    }
+
+    public String getReparto() {
+        return reparto;
+    }
+
+    public void setReparto(String reparto) {
+        this.reparto = reparto;
+    }
+
+    public String getSinapsis() {
+        return sinapsis;
+    }
+
+    public void setSinapsis(String sinapsis) {
+        this.sinapsis = sinapsis;
+    }
+
+    public int getDirector() {
+        return director;
+    }
+
+    public void setDirector(int director) {
+        this.director = director;
+    }
+
     public String getImagen() {
         return imagen;
     }
@@ -71,9 +104,17 @@ public class Pelicula {
         this.imagen = imagen;
     }
 
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
+
     @Override
     public String toString() {
-        return "Pelicula [idPelicula=" + idPelicula + ", titulo=" + titulo + ", description=" + description
+        return "Pelicula [idPelicula=" + idPelicula + ", titulo=" + titulo + ", sinapsis=" + sinapsis
                 + ", duracion=" + duracion + ", genero=" + genero + ", imagen=" + imagen + "]";
     }
 }
