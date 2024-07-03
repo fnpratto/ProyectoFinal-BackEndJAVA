@@ -26,9 +26,9 @@ public class DatabaseConnection {
         Connection connection = null;
         try {
             connection = DriverManager.getConnection(URL, USER, PASS);
-            System.out.println("Connection established");
+            System.out.println("Coneccion establicida");
         } catch (SQLException e) {
-            System.out.println("Error connecting to database: " + e.getMessage());
+            System.out.println("Error al establecer la coneccion con la base de datos: " + e.getMessage());
             e.printStackTrace(); 
         }
         

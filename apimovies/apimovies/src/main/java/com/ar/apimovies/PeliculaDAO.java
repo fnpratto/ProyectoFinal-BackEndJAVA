@@ -1,5 +1,4 @@
 package com.ar.apimovies;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.PreparedStatement;

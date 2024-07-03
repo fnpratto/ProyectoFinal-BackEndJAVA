@@ -11,7 +11,7 @@ public class TestConnection {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             // Establish a connection to the database
-            String url = "jdbc:mysql://localhost:3306/your_database";
+            String url = "jdbc:mysql://localhost:3306/peliculas";
             String user = "your_username";
             String password = "your_password";
 
