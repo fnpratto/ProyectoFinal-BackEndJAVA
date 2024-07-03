@@ -143,7 +143,14 @@ public class ConneccionSQL {
 
     private static void eliminarPelicula(Connection cn, Scanner scan) {
 
-        System.out.println("Ingrese el ID de la película a eliminar: "); //to-do tal vez estaria bueno que se muestre la lista de peliculas para que el usuario pueda ver el id
+        List<Pelicula> peliculas = listarPeliculas(cn);
+
+        System.out.println("Lista de películas disponibles:");
+        for (Pelicula pelicula : peliculas) {
+            System.out.println("ID: " + pelicula.getIdPelicula() + ", Título: " + pelicula.getTitulo());
+        }
+
+        System.out.println("Ingrese el ID de la película a eliminar: "); 
         int id = scan.nextInt();
 
         String deleteQuery = "DELETE FROM peliculas WHERE idPelicula = ?";
@@ -175,7 +182,7 @@ public class ConneccionSQL {
              ResultSet rs = stm.executeQuery(selectQuery)) {
 
             while (rs.next()) {
-                Long idPelicula = rs.getLong("idPelicula");
+                int idPelicula = rs.getInt("idPelicula");
                 String titulo = rs.getString("titulo");
                 String description = rs.getString("description");
                 String duracion = rs.getString("duracion");

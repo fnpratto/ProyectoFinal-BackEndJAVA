@@ -2,7 +2,7 @@ package com.ar.apimovies;
 
 public class Pelicula {
 
-    private Long idPelicula;  
+    private int idPelicula;  
     private String titulo ;
     private String description;
     private String duracion;
@@ -14,7 +14,7 @@ public class Pelicula {
 
     }
 
-    public Pelicula(long idPelicula, String titulo, String description, String duracion, String genero, String imagen) {
+    public Pelicula(int idPelicula, String titulo, String description, String duracion, String genero, String imagen) {
         this.idPelicula = idPelicula;
         this.titulo = titulo;
         this.description = description;
@@ -23,11 +23,11 @@ public class Pelicula {
         this.imagen = imagen;
     }
 
-    public long getIdPelicula() {
+    public int getIdPelicula() {
         return idPelicula;
     }
 
-    public void setIdPelicula(long idPelicula) {
+    public void setIdPelicula(int idPelicula) {
         this.idPelicula = idPelicula;
     }
 
