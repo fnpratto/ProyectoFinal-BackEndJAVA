@@ -32,3 +32,4 @@ chequear http://localhost:8080/
 
 Base de datos
 - XAMPP
+- mysql jbc: https://dev.mysql.com/downloads/connector/j/
