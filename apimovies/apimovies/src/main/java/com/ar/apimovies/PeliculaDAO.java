@@ -13,7 +13,7 @@ public class PeliculaDAO {
     public Long insertPelicula(Pelicula pelicula) {
         DatabaseConnection conexion = new DatabaseConnection();
 
-        Statement stmt = null;
+        //Statement stmt = null;
         PreparedStatement pstm = null;
         ResultSet rs = null;
         String insertarPeliculaSql = "INSERT INTO peliculas (titulo, genero, director, duracion) VALUES (?, ?, ?, ?)";
