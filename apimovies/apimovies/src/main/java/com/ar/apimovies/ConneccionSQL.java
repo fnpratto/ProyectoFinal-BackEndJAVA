@@ -14,66 +14,6 @@ public class ConneccionSQL {
     // Método main: Muestra un menú de opciones y llama a los métodos correspondientes 
 	// insertarUsuario, actualizarUsuario, eliminarUsuario, listarUsuarios
 	// según la opción seleccionada por el usuario.
-    public static void main(String[] args) {
-       
-    	// Se crea una instancia de la clase Conexion para utilizar su método conectar, 
-    	// que establece la conexión con la base de datos.
-    	// Esto permite modularizar el código de conexión a la base de datos y 
-    	// reutilizarlo en diferentes partes del programa.
-    	DatabaseConnection coneccion = new DatabaseConnection();
-
-    	// La variable Connection va a almacena la conexión activa a la base de datos.
-        Connection cn = null;
-        
-        Scanner scan = new Scanner(System.in);
-
-        try {
-            // Establecer conexión
-            cn = coneccion.conectar();
-
-            // Menú de opciones
-            int opcion;
-            do {
-                System.out.println("\nSeleccione una opción:");
-                System.out.println("1. Insertar una nuevo pelicula");
-                System.out.println("2. Activar una pelicula");
-                System.out.println("3. Eliminar una pelicula");
-                System.out.println("4. Listar todas las peliculas");
-                System.out.println("5. Salir");
-                opcion = scan.nextInt();
-
-                switch (opcion) {
-                    case 1:
-                        insertarPelicula(cn, scan);
-                        break;
-                    case 2:
-                        actualizarPelicula(cn, scan);
-                        break;
-                    case 3:
-                        eliminarPelicula(cn, scan);
-                        break;
-                    case 4:
-                        List<Pelicula> usuarios = listarPeliculas(cn);
-                        usuarios.forEach(System.out::println);
-                        break;
-                    case 5:
-                        System.out.println("Saliendo...");
-                        break;
-                    default:
-                        System.out.println("Opción no válida. Intente nuevamente.");
-                }
-            } while (opcion != 5);
-
-        } finally {
-            // Cerrar recursos en el orden inverso de su apertura
-            try {
-                if (cn != null) cn.close();
-                scan.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
 
     private static void insertarPelicula(Connection cn, Scanner scan) {
         System.out.println("Ingrese el título de la película: ");
@@ -230,6 +170,68 @@ public class ConneccionSQL {
         }
         return peliculas;
     }
+
+    public static void main(String[] args) {
+       
+    	// Se crea una instancia de la clase Conexion para utilizar su método conectar, 
+    	// que establece la conexión con la base de datos.
+    	// Esto permite modularizar el código de conexión a la base de datos y 
+    	// reutilizarlo en diferentes partes del programa.
+    	DatabaseConnection coneccion = new DatabaseConnection();
+
+    	// La variable Connection va a almacena la conexión activa a la base de datos.
+        Connection cn = null;
+        
+        Scanner scan = new Scanner(System.in);
+
+        try {
+            // Establecer conexión
+            cn = coneccion.conectar();
+
+            // Menú de opciones
+            int opcion;
+            do {
+                System.out.println("\nSeleccione una opción:");
+                System.out.println("1. Insertar una nuevo pelicula");
+                System.out.println("2. Activar una pelicula");
+                System.out.println("3. Eliminar una pelicula");
+                System.out.println("4. Listar todas las peliculas");
+                System.out.println("5. Salir");
+                opcion = scan.nextInt();
+
+                switch (opcion) {
+                    case 1:
+                        insertarPelicula(cn, scan);
+                        break;
+                    case 2:
+                        actualizarPelicula(cn, scan);
+                        break;
+                    case 3:
+                        eliminarPelicula(cn, scan);
+                        break;
+                    case 4:
+                        List<Pelicula> usuarios = listarPeliculas(cn);
+                        usuarios.forEach(System.out::println);
+                        break;
+                    case 5:
+                        System.out.println("Saliendo...");
+                        break;
+                    default:
+                        System.out.println("Opción no válida. Intente nuevamente.");
+                }
+            } while (opcion != 5);
+
+        } finally {
+            // Cerrar recursos en el orden inverso de su apertura
+            try {
+                if (cn != null) cn.close();
+                scan.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     
 }
 

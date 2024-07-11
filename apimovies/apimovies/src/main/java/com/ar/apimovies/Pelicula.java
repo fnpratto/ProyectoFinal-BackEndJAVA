@@ -18,6 +18,12 @@ public class Pelicula {
 
 
     }
+    public static void main(String[] args) {
+        // Your main method logic goes here
+        Pelicula pelicula = new Pelicula(1, "Example Title", "2024-01-01", "Action", 120, "John Doe", "Example plot", 1, "example.jpg", true);
+        System.out.println(pelicula);
+        System.out.println("funciona");
+    }
 
     public Pelicula(int idPelicula, String titulo, String fechaLanzamiento, String genero, int duracion, String reparto, String sinapsis, int director, String imagen, boolean activo) {
         this.idPelicula = idPelicula;

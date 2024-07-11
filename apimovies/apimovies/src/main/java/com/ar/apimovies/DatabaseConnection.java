@@ -4,6 +4,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 
+
 public class DatabaseConnection {
 
     private static final String CONTROLAR = "com.mysql.cj.jdbc.Driver";
