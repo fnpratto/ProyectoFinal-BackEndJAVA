@@ -187,10 +187,12 @@ public class ConneccionSQL {
         try {
             // Establecer conexión
             cn = coneccion.conectar();
-
-            // Menú de opciones
-            int opcion;
-            do {
+            if (cn != null) {
+                System.out.println("Conexión establecida correctamente.");
+    
+                // Menú de opciones
+                int opcion;
+                do {
                 System.out.println("\nSeleccione una opción:");
                 System.out.println("1. Insertar una nuevo pelicula");
                 System.out.println("2. Activar una pelicula");
@@ -220,6 +222,9 @@ public class ConneccionSQL {
                         System.out.println("Opción no válida. Intente nuevamente.");
                 }
             } while (opcion != 5);
+            } else {
+                System.out.println("No se pudo establecer la conexión.");
+            }
 
         } finally {
             // Cerrar recursos en el orden inverso de su apertura
