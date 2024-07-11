@@ -1,10 +1,12 @@
 package com.ar.apimovies;
 
+import java.util.Date;
+
 public class Pelicula {
 
     private int idPelicula;  
     private String titulo;
-    private String fechaLanzamiento;
+    private Date fechaLanzamiento;
     private String genero;
     private int duracion;
     private String reparto;
@@ -19,13 +21,10 @@ public class Pelicula {
 
     }
     public static void main(String[] args) {
-        // Your main method logic goes here
-        Pelicula pelicula = new Pelicula(1, "Example Title", "2024-01-01", "Action", 120, "John Doe", "Example plot", 1, "example.jpg", true);
+        Pelicula pelicula = new Pelicula();
         System.out.println(pelicula);
-        System.out.println("funciona");
     }
-
-    public Pelicula(int idPelicula, String titulo, String fechaLanzamiento, String genero, int duracion, String reparto, String sinapsis, int director, String imagen, boolean activo) {
+    public Pelicula(int idPelicula, String titulo, Date fechaLanzamiento, String genero, int duracion, String reparto, String sinapsis, int director, String imagen, boolean activo) {
         this.idPelicula = idPelicula;
         this.titulo = titulo;
         this.fechaLanzamiento = fechaLanzamiento;
@@ -54,11 +53,11 @@ public class Pelicula {
         this.titulo = titulo;
     }
 
-    public String getFechaLanzamiento() {
+    public Date getFechaLanzamiento() {
         return fechaLanzamiento;
     }
 
-    public void setFechaLanzamiento(String fechaLanzamiento) {
+    public void setFechaLanzamiento(Date fechaLanzamiento) {
         this.fechaLanzamiento = fechaLanzamiento;
     }
 

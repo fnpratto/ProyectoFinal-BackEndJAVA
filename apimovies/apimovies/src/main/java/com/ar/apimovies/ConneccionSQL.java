@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -144,25 +145,28 @@ public class ConneccionSQL {
 
         List<Pelicula> peliculas = new ArrayList<>();
 
-        String selectQuery = "SELECT id_movie, Nombre, fecha_lanzamiento, genero, duracion, reparto, sinapsis, director, imagen FROM movies WHERE activo = true";
-
+        String selectQuery = "SELECT id_movie, Nombre, fecha_lanzamiento, genero, duracion, reparto, sinapsis, director, imagen, activo FROM movies";
+   
         try (Statement stm = cn.createStatement();
              ResultSet rs = stm.executeQuery(selectQuery)) {
 
             while (rs.next()) {
-                int idPelicula = rs.getInt("idPelicula");
-                String titulo = rs.getString("Nombre");
-                String fechaLanzamiento = rs.getDate("fecha_lanzamiento").toString();
+                int id = rs.getInt("id_movie");
+                String nombre = rs.getString("Nombre");
+                Date fechaLanzamiento = rs.getDate("fecha_lanzamiento");
                 String genero = rs.getString("genero");
                 int duracion = rs.getInt("duracion");
                 String reparto = rs.getString("reparto");
                 String sinapsis = rs.getString("sinapsis");
                 int director = rs.getInt("director");
                 String imagen = rs.getString("imagen");
-                //boolean activo = rs.getBoolean("activo");
+                boolean activo = rs.getBoolean("activo");
 
-                Pelicula pelicula = new Pelicula(idPelicula, titulo, fechaLanzamiento, genero, duracion, reparto, sinapsis, director, imagen, true);
+                // Crear instancia de Pelicula con los nombres de variables correctos
+                Pelicula pelicula = new Pelicula(id, nombre, fechaLanzamiento, genero, duracion, reparto, sinapsis, director, imagen, activo);
                 peliculas.add(pelicula);
+
+                
             }
         } catch (SQLException e) {
             System.err.println("Error al listar las películas");

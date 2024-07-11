@@ -1,5 +1,6 @@
 package com.ar.apimovies;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
@@ -22,7 +23,7 @@ public class PeliculaDAO {
         try {
             pstm = cn.prepareStatement(insertarPeliculaSql);
             pstm.setString(1, pelicula.getTitulo());
-            pstm.setDate(2, java.sql.Date.valueOf(pelicula.getFechaLanzamiento()));
+            pstm.setDate(2, new java.sql.Date(pelicula.getFechaLanzamiento().getTime()));
             pstm.setString(3, pelicula.getGenero());
             pstm.setInt(4, pelicula.getDuracion());
             pstm.setString(5, pelicula.getReparto());
@@ -69,7 +70,7 @@ public class PeliculaDAO {
             while (rs.next()) {
                 int idPelicula = rs.getInt("id_pelicula");
                 String titulo = rs.getString("Nombre");
-                String fechaLanzamiento = rs.getDate("fecha_lanzamiento").toString();
+                Date fechaLanzamiento = new java.util.Date(rs.getDate("fecha_lanzamiento").getTime());
                 String genero = rs.getString("genero");
                 int duracion = rs.getInt("duracion");
                 String reparto = rs.getString("reparto");
