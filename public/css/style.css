@@ -717,6 +717,13 @@ hr {
   font-weight: 700;
 }
 
+.update-movie {
+  background-color: #107a56;
+  color: white;
+  border: none;
+  padding: 5px;
+}
+
 .titulo-update {
   font-size: 2.5rem;
   font-weight: 500;
@@ -725,12 +732,6 @@ hr {
 .flex {
   display: flex;
   justify-content: center;
-}
-
-footer {
-  margin: 0;
-
-
 }
 
 textarea {
@@ -746,8 +747,8 @@ table {
   margin-right: 1vw;
 }
 
-.content-body {
-  width: 100vw;
+.flex2 {
+  display: flex;
 }
 
 input[type="file"] {
