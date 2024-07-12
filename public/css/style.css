@@ -717,6 +717,66 @@ hr {
   font-weight: 700;
 }
 
+.titulo-update {
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+}
+
+footer {
+  margin: 0;
+
+
+}
+
+textarea {
+  width: 80vw;
+}
+
+table {
+  border: #9f3647 1px solid;
+
+}
+
+.m-r {
+  margin-right: 1vw;
+}
+
+.content-body {
+  width: 100vw;
+}
+
+input[type="file"] {
+  background-color: white;
+}
+
+.update-container {
+  width: 84%;
+  margin-left: 8%;
+}
+
+#titulo {
+  width: 20vw;
+}
+
+input {
+  color: #000000;
+}
+
+#fecha {
+  color: #000000;
+  width: 15vw;
+}
+
+#genero {
+  width: 15vw;
+}
+
+
 .boton-login {
   width: 93%;
   box-sizing: content-box;
