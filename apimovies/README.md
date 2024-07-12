@@ -32,4 +32,7 @@ chequear http://localhost:8080/
 
 Base de datos
 - XAMPP
+
 - Cuidado que nombre le ponen a la base de datos local y el URL que se tiene en DatabaseConnection , por ahora se llama movies pero cambiar el url a como lo tengan localmente
+- mysql jbc: https://dev.mysql.com/downloads/connector/j/
+
