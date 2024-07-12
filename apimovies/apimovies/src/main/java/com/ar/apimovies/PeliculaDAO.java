@@ -61,7 +61,8 @@ public class PeliculaDAO {
         List<Pelicula> peliculas = new ArrayList<>();
         PreparedStatement pstm = null; // Change Statement to PreparedStatement
         ResultSet rs = null;
-        String selectPeliculasSql = "SELECT * FROM peliculas";
+        String selectPeliculasSql = "SELECT id_movie, Nombre, fecha_lanzamiento, genero, duracion, reparto, sinapsis, director, imagen, activo FROM movies";
+
 
         try {
             pstm = cn.prepareStatement(selectPeliculasSql);
@@ -79,7 +80,7 @@ public class PeliculaDAO {
                 String imagen = rs.getString("imagen");
                 boolean activo = rs.getBoolean("activo");
 
-                Pelicula pelicula = new Pelicula(titulo, fechaLanzamiento, genero, duracion, reparto, sinapsis, director, imagen, activo);
+                Pelicula pelicula = new Pelicula(idPelicula, titulo, fechaLanzamiento, genero, duracion, reparto, sinapsis, director, imagen, activo);
                 peliculas.add(pelicula);
             }
 

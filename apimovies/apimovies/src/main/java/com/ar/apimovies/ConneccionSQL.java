@@ -3,7 +3,6 @@ package com.ar.apimovies;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,7 +10,6 @@ import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -214,28 +212,25 @@ public class ConneccionSQL {
 
         List<Pelicula> peliculas = new ArrayList<>();
 
-        String selectQuery = "SELECT * FROM movies WHERE activo = true";
+        String selectQuery = "SELECT id_movie, Nombre, fecha_lanzamiento, genero, duracion, reparto, sinapsis, director, imagen, activo FROM movies";
    
         try (Statement stm = cn.createStatement();
              ResultSet rs = stm.executeQuery(selectQuery)) {
 
             while (rs.next()) {
-                int id = rs.getInt("id_movie");
-                String nombre = rs.getString("Nombre");
-                Date fechaLanzamiento = rs.getDate("fecha_lanzamiento");
-                String genero = rs.getString("genero");
-                int duracion = rs.getInt("duracion");
-                String reparto = rs.getString("reparto");
-                String sinapsis = rs.getString("sinapsis");
-                int director = rs.getInt("director");
-                String imagen = rs.getString("imagen");
-                boolean activo = rs.getBoolean("activo");
+                Pelicula pelicula = new Pelicula();
+                pelicula.setIdPelicula(rs.getInt("id_movie"));
+                pelicula.setTitulo(rs.getString("Nombre"));
+                pelicula.setFechaLanzamiento(rs.getDate("fecha_lanzamiento"));
+                pelicula.setGenero(rs.getString("genero"));
+                pelicula.setDuracion(rs.getInt("duracion"));
+                pelicula.setReparto(rs.getString("reparto"));
+                pelicula.setSinapsis(rs.getString("sinapsis"));
+                pelicula.setDirector(rs.getInt("director"));
+                pelicula.setImagen(rs.getString("imagen"));
+                pelicula.setActivo(rs.getBoolean("activo"));
 
-                // Crear instancia de Pelicula con los nombres de variables correctos
-                Pelicula pelicula = new Pelicula(id, nombre, fechaLanzamiento, genero, duracion, reparto, sinapsis, director, imagen, activo);
-                peliculas.add(pelicula); 
-
-                
+                peliculas.add(pelicula);
             }
         } catch (SQLException e) {
             System.err.println("Error al listar las películas");

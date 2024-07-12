@@ -47,51 +47,90 @@ public class Pelicula {
         this.activo = activo;
     }
 
-
     // Getters
     public int getIdPelicula() {
         return idPelicula;
+    }
+
+    public void setIdPelicula(int int1) {
+        this.idPelicula = int1;
     }
 
     public String getTitulo() {
         return titulo;
     }
 
+    public void setTitulo(String string) {
+        this.titulo = string;
+    }
+
     public Date getFechaLanzamiento() {
         return fechaLanzamiento;
+    }
+
+    public void setFechaLanzamiento(java.sql.Date date) {
+        this.fechaLanzamiento = date;
     }
 
     public String getGenero() {
         return genero;
     }
 
+    public void setGenero(String string) {
+        this.genero = string;
+    }
+
     public int getDuracion() {
         return duracion;
+    }
+
+    public void setDuracion(int int1) {
+        this.duracion = int1;
     }
 
     public String getReparto() {
         return reparto;
     }
 
+    public void setReparto(String string) {
+        this.reparto = string;
+    }
+
     public String getSinapsis() {
         return sinapsis;
+    }
+
+    public void setSinapsis(String string) {
+        this.sinapsis = string;
     }
 
     public int getDirector() {
         return director;
     }
 
+    public void setDirector(int int1) {
+        this.director = int1;
+    }
+
     public String getImagen() {
         return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
     public boolean isActivo() {
         return activo;
     }
 
+    public void setActivo(boolean boolean1) {
+        this.activo = boolean1;
+    }
+
     @Override
     public String toString() {
         return "Pelicula [idPelicula=" + idPelicula + ", titulo=" + titulo + ", sinapsis=" + sinapsis
                 + ", duracion=" + duracion + ", genero=" + genero + ", imagen=" + imagen + "]";
-    } //todo
+    } 
 }
