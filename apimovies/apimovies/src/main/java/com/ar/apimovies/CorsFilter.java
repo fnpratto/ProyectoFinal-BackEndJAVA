@@ -11,6 +11,8 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
+
 @WebFilter("/*")
 public class CorsFilter implements Filter {
 
@@ -33,7 +35,7 @@ public class CorsFilter implements Filter {
                 
              }
        
-             //chain.doFilter(request, response);
+             chain.doFilter(request, response);
         }
 
 }
