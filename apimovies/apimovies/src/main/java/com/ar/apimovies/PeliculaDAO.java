@@ -1,6 +1,5 @@
 package com.ar.apimovies;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
@@ -16,8 +15,8 @@ public class PeliculaDAO {
         //Statement stmt = null;
         PreparedStatement pstm = null;
         ResultSet rs = null;
-        String insertarPeliculaSql = "INSERT INTO peliculas (titulo, genero, director, duracion) VALUES (?, ?, ?, ?)";
-
+        String insertarPeliculaSql = "INSERT INTO movies (titulo, fechaLanzamiento, genero, duracion, reparto, sinapsis, director, imagen, activo) " +
+                                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         Connection cn = conexion.getConnection();
 
         try {

@@ -89,7 +89,7 @@ public class ConneccionSQL {
                 String activoStr = reader.readLine().toLowerCase();
                 if (activoStr.equals("true") || activoStr.equals("false")) {
                     activo = Boolean.parseBoolean(activoStr);
-                    activoValido = true; // Activo válido
+                    activoValido = true;
                 } else {
                     System.out.println("Debe ingresar true o false para indicar si la película está activa.");
                 }
@@ -101,7 +101,7 @@ public class ConneccionSQL {
             String insertQuery = "INSERT INTO movies (titulo, fechaLanzamiento, genero, duracion, reparto, sinapsis, director, imagen, activo) " +
                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-            try (PreparedStatement pstm = cn.prepareStatement(insertQuery)) {
+            try (PreparedStatement pstm = cn.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS)) {
                 pstm.setString(1, pelicula.getTitulo());
                 pstm.setDate(2, new java.sql.Date(pelicula.getFechaLanzamiento().getTime()));
                 pstm.setString(3, pelicula.getGenero());
@@ -114,15 +114,21 @@ public class ConneccionSQL {
 
                 int affectedRows = pstm.executeUpdate();
                 if (affectedRows > 0) {
-                    System.out.println("Película insertada correctamente");
+                    ResultSet generatedKeys = pstm.getGeneratedKeys();
+                    if (generatedKeys.next()) {
+                        long id = generatedKeys.getLong(1); // Assuming the first column is the generated key
+                        System.out.println("Película insertada correctamente con ID: " + id);
+                    } else {
+                        System.out.println("No se pudo obtener el ID de la película insertada.");
+                    }
                 } else {
-                    System.out.println("No se pudo insertar la película");
+                    //System.out.println("No se pudo insertar la película.");
                 }
             } catch (SQLException e) {
                 System.out.println("Error al insertar la película: " + e.getMessage());
             }
         } catch (Exception e) {
-            System.out.println("Error al ingresar los datos de la película: " + e.getMessage());
+            System.out.println("Error al leer la entrada del usuario: " + e.getMessage());
         }
     }
 
@@ -190,7 +196,7 @@ public class ConneccionSQL {
         System.out.println("Ingrese el ID de la película a desactivar: "); 
         int id = scan.nextInt();
 
-        String updateQuery = "UPDATE movies SET activo = false WHERE id_movie = ?";
+        String updateQuery = "UPDATE movies SET activo = false WHERE idPelicula = ?";
 
         try (PreparedStatement pstm = cn.prepareStatement(updateQuery)) {
             pstm.setLong(1, id);
@@ -259,7 +265,7 @@ public class ConneccionSQL {
                 System.out.println("Conexión establecida correctamente.");
     
                 // Menú de opciones
-                int opcion;
+                int opcion=0;
                 do {
                 System.out.println("\nSeleccione una opción:");
                 System.out.println("1. Insertar una nuevo pelicula");
@@ -267,32 +273,37 @@ public class ConneccionSQL {
                 System.out.println("3. Eliminar una pelicula");
                 System.out.println("4. Listar todas las peliculas");
                 System.out.println("5. Salir");
-                opcion = scan.nextInt();
-
-                switch (opcion) {
-                    case 1:
-                        insertarPelicula(cn, scan);
-                        break;
-                    case 2:
-                        actualizarPelicula(cn, scan);
-                        break;
-                    case 3:
-                        eliminarPelicula(cn, scan);
-                        break;
-                    case 4:
-                        List<Pelicula> usuarios = listarPeliculas(cn);
-                        usuarios.forEach(System.out::println);
-                        break;
-                    case 5:
-                        System.out.println("Saliendo...");
-                        break;
-                    default:
-                        System.out.println("Opción no válida. Intente nuevamente.");
+                if (scan.hasNextInt()) {
+                    opcion = scan.nextInt();
+    
+                    switch (opcion) {
+                        case 1:
+                            insertarPelicula(cn, scan);
+                            break;
+                        case 2:
+                            actualizarPelicula(cn, scan);
+                            break;
+                        case 3:
+                            eliminarPelicula(cn, scan);
+                            break;
+                        case 4:
+                            List<Pelicula> peliculas = listarPeliculas(cn);
+                            peliculas.forEach(System.out::println);
+                            break;
+                        case 5:
+                            System.out.println("Saliendo...");
+                            break;
+                        default:
+                            System.out.println("Opción no válida. Intente nuevamente.");
+                    }
+                } else {
+                    System.out.println("Entrada inválida. Por favor, ingrese un número.");
+                    scan.next(); // Consume the invalid input to prevent an infinite loop
                 }
             } while (opcion != 5);
-            } else {
-                System.out.println("No se pudo establecer la conexión.");
-            }
+        } else {
+            System.out.println("No se pudo establecer la conexión.");
+        }
 
         } finally {
             // Cerrar recursos en el orden inverso de su apertura
