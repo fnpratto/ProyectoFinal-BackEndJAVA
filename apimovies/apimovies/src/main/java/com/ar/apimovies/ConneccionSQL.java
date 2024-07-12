@@ -190,7 +190,7 @@ public class ConneccionSQL {
 
         try {
             // Establecer conexión
-            cn = coneccion.conectar();
+            cn = coneccion.getConnection();
             if (cn != null) {
                 System.out.println("Conexión establecida correctamente.");
     

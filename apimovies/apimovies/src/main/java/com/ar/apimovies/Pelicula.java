@@ -121,5 +121,5 @@ public class Pelicula {
     public String toString() {
         return "Pelicula [idPelicula=" + idPelicula + ", titulo=" + titulo + ", sinapsis=" + sinapsis
                 + ", duracion=" + duracion + ", genero=" + genero + ", imagen=" + imagen + "]";
-    }
+    } //todo
 }

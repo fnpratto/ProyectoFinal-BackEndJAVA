@@ -18,7 +18,7 @@ public class PeliculaDAO {
         ResultSet rs = null;
         String insertarPeliculaSql = "INSERT INTO peliculas (titulo, genero, director, duracion) VALUES (?, ?, ?, ?)";
 
-        Connection cn = conexion.conectar();
+        Connection cn = conexion.getConnection();
 
         try {
             pstm = cn.prepareStatement(insertarPeliculaSql);
@@ -57,7 +57,7 @@ public class PeliculaDAO {
 
     public List<Pelicula> getAllPeliculas(){
         DatabaseConnection conexion = new DatabaseConnection();
-        Connection cn = conexion.conectar();
+        Connection cn = conexion.getConnection();
         List<Pelicula> peliculas = new ArrayList<>();
         PreparedStatement pstm = null; // Change Statement to PreparedStatement
         ResultSet rs = null;
@@ -92,7 +92,7 @@ public class PeliculaDAO {
 
     public void desactivarPelicula(Long idPelicula) {
         DatabaseConnection conexion = new DatabaseConnection();
-        Connection cn = conexion.conectar();
+        Connection cn = conexion.getConnection();
 
         String updateQuery = "UPDATE movies SET activo = false WHERE id_movie = ?";
 
