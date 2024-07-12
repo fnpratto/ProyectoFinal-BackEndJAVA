@@ -44,12 +44,12 @@ public class PeliculaServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        /*resp.setHeader("Acess-Control-Allow-Origin", "*");
+        resp.setHeader("Acess-Control-Allow-Origin", "*");
         resp.setHeader("Acess-Control-Allow-Methods", "*");
-        resp.setHeader("Acces-Control-Alloc_Headers", "Content-Type");*/
+        resp.setHeader("Acces-Control-Alloc_Headers", "Content-Type");
 
         req.setCharacterEncoding("UTF-8");
-        req.setCharacterEncoding("UTF-8");
+        resp.setCharacterEncoding("UTF-8");
 
         Pelicula pelicula = objectMapper.readValue(req.getInputStream(), Pelicula.class);
         Long id = peliculaDAO.insertPelicula(pelicula);
@@ -57,11 +57,11 @@ public class PeliculaServlet extends HttpServlet {
         resp.setContentType("application/json");
         resp.getWriter().write(jsonResponse);
 
-        /*if (id != null) {
+        if (id != null) {
             resp.getWriter().println("Se inserto la pelicula con id: " + id);
         } else {
             resp.getWriter().println("No se pudo insertar la pelicula");
-        }*/
+        }
 
         resp.setStatus(HttpServletResponse.SC_CREATED);
 

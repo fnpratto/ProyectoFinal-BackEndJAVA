@@ -159,7 +159,7 @@ public class ConneccionSQL {
                 String reparto = rs.getString("reparto");
                 String sinapsis = rs.getString("sinapsis");
                 int director = rs.getInt("director");
-                String imagen = rs.getString("imagen");
+                String imagen = rs.getString("imageGn");
                 boolean activo = rs.getBoolean("activo");
 
                 // Crear instancia de Pelicula con los nombres de variables correctos
