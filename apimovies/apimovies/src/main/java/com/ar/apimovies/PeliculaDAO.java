@@ -79,7 +79,7 @@ public class PeliculaDAO {
                 String imagen = rs.getString("imagen");
                 boolean activo = rs.getBoolean("activo");
 
-                Pelicula pelicula = new Pelicula(idPelicula, titulo, fechaLanzamiento, genero, duracion, reparto, sinapsis, director, imagen, activo);
+                Pelicula pelicula = new Pelicula(titulo, fechaLanzamiento, genero, duracion, reparto, sinapsis, director, imagen, activo);
                 peliculas.add(pelicula);
             }
 
