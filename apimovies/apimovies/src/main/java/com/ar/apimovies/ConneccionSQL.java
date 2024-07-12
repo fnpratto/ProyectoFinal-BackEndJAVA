@@ -98,7 +98,7 @@ public class ConneccionSQL {
 
             Pelicula pelicula = new Pelicula(titulo, fechaLanzamiento, genero, duracion, reparto, sinapsis, director, imagen, activo);
 
-            String insertQuery = "INSERT INTO movies (Nombre, fecha_lanzamiento, genero, duracion, reparto, sinapsis, director, imagen, activo) " +
+            String insertQuery = "INSERT INTO movies (titulo, fechaLanzamiento, genero, duracion, reparto, sinapsis, director, imagen, activo) " +
                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             try (PreparedStatement pstm = cn.prepareStatement(insertQuery)) {
@@ -153,7 +153,7 @@ public class ConneccionSQL {
                 }
             }
 
-            String updateQuery = "UPDATE movies SET activo = ? WHERE Nombre = ?";
+            String updateQuery = "UPDATE movies SET activo = ? WHERE titulo = ?";
 
             try (PreparedStatement pstm = cn.prepareStatement(updateQuery)) {
                 pstm.setBoolean(1, activo);  // Set activo (boolean) at index 1
@@ -212,16 +212,16 @@ public class ConneccionSQL {
 
         List<Pelicula> peliculas = new ArrayList<>();
 
-        String selectQuery = "SELECT id_movie, Nombre, fecha_lanzamiento, genero, duracion, reparto, sinapsis, director, imagen, activo FROM movies";
+        String selectQuery = "SELECT idPelicula, titulo, fechaLanzamiento, genero, duracion, reparto, sinapsis, director, imagen, activo FROM movies";
    
         try (Statement stm = cn.createStatement();
              ResultSet rs = stm.executeQuery(selectQuery)) {
 
             while (rs.next()) {
                 Pelicula pelicula = new Pelicula();
-                pelicula.setIdPelicula(rs.getInt("id_movie"));
-                pelicula.setTitulo(rs.getString("Nombre"));
-                pelicula.setFechaLanzamiento(rs.getDate("fecha_lanzamiento"));
+                pelicula.setIdPelicula(rs.getInt("idPelicula"));
+                pelicula.setTitulo(rs.getString("titulo"));
+                pelicula.setFechaLanzamiento(rs.getDate("fechaLanzamiento"));
                 pelicula.setGenero(rs.getString("genero"));
                 pelicula.setDuracion(rs.getInt("duracion"));
                 pelicula.setReparto(rs.getString("reparto"));

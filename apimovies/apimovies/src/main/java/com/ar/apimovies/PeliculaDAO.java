@@ -59,43 +59,38 @@ public class PeliculaDAO {
         DatabaseConnection conexion = new DatabaseConnection();
         Connection cn = conexion.getConnection();
         List<Pelicula> peliculas = new ArrayList<>();
-        PreparedStatement pstm = null; // Change Statement to PreparedStatement
-        ResultSet rs = null;
-        String selectPeliculasSql = "SELECT id_movie, Nombre, fecha_lanzamiento, genero, duracion, reparto, sinapsis, director, imagen, activo FROM movies";
+        String query = "SELECT idPelicula, titulo, fechaLanzamiento, genero, duracion, reparto, sinapsis, director, imagen, activo FROM movies";
+        
+        try (PreparedStatement pstm = cn.prepareStatement(query);
+             ResultSet resultSet = pstm.executeQuery()) {
 
-
-        try {
-            pstm = cn.prepareStatement(selectPeliculasSql);
-            rs = pstm.executeQuery(); // Correct usage for PreparedStatement
-
-            while (rs.next()) {
-                int idPelicula = rs.getInt("id_pelicula");
-                String titulo = rs.getString("Nombre");
-                Date fechaLanzamiento = new java.util.Date(rs.getDate("fecha_lanzamiento").getTime());
-                String genero = rs.getString("genero");
-                int duracion = rs.getInt("duracion");
-                String reparto = rs.getString("reparto");
-                String sinapsis = rs.getString("sinapsis");
-                int director = rs.getInt("director");
-                String imagen = rs.getString("imagen");
-                boolean activo = rs.getBoolean("activo");
-
-                Pelicula pelicula = new Pelicula(idPelicula, titulo, fechaLanzamiento, genero, duracion, reparto, sinapsis, director, imagen, activo);
+            while (resultSet.next()) {
+                Pelicula pelicula = new Pelicula();
+                pelicula.setIdPelicula(resultSet.getInt("idPelicula"));
+                pelicula.setTitulo(resultSet.getString("titulo"));
+                pelicula.setFechaLanzamiento(resultSet.getDate("fechaLanzamiento"));
+                pelicula.setGenero(resultSet.getString("genero"));
+                pelicula.setDuracion(resultSet.getInt("duracion"));
+                pelicula.setReparto(resultSet.getString("reparto"));
+                pelicula.setSinapsis(resultSet.getString("sinapsis"));
+                pelicula.setDirector(resultSet.getInt("director"));
+                pelicula.setImagen(resultSet.getString("imagen"));
+                pelicula.setActivo(resultSet.getBoolean("activo"));
                 peliculas.add(pelicula);
             }
 
-            return peliculas;
-        }catch (Exception e){
-            e.printStackTrace();
-            return null;
+        } catch (SQLException e) {
+            System.err.println("Error fetching peliculas: " + e.getMessage());
         }
+
+        return peliculas;
     }
 
     public void desactivarPelicula(Long idPelicula) {
         DatabaseConnection conexion = new DatabaseConnection();
         Connection cn = conexion.getConnection();
 
-        String updateQuery = "UPDATE movies SET activo = false WHERE id_movie = ?";
+        String updateQuery = "UPDATE movies SET activo = false WHERE idPelicula = ?";
 
         try (PreparedStatement pstm = cn.prepareStatement(updateQuery)) {
             pstm.setLong(1, idPelicula);
