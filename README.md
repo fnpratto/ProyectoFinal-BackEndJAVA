@@ -20,4 +20,3 @@ El proyecto "CAC-Movies" es una aplicación web diseñada para gestionar y visua
 - [Milagros Llanos](https://github.com/moonstone3798)
 - [Avila Nicolas](https://github.com/AVILANICO)
 
-Enlace de video:  https://www.youtube.com/watch?v=ZVCvcE4L-fs
