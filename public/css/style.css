@@ -736,6 +736,10 @@ hr {
   padding: 5px;
 }
 
+textarea {
+  width: 84%;
+}
+
 .titulo-update {
   font-size: 2.5rem;
   font-weight: 500;
@@ -793,7 +797,7 @@ input[type="file"] {
 }
 
 #titulo {
-  width: 20vw;
+  width: 22vw;
 }
 
 input {
@@ -802,11 +806,11 @@ input {
 
 #fecha {
   color: #000000;
-  width: 15vw;
+  width: 16.5vw;
 }
 
 #genero {
-  width: 15vw;
+  width: 16.5vw;
 }
 
 
