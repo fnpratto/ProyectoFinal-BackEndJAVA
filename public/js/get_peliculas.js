@@ -46,6 +46,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         img.classList.add('img-fluid');
         img.classList.add('img-thumbnail');
 
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Eliminar';
+
+        const updateButton = document.createElement('button');
+        updateButton.textContent = 'Modificar';
+        updateButton.addEventListener('click', () => {
+            window.location.href = '../views/update.html';
+        });
+
         tr.appendChild(titulo);
         tr.appendChild(fechaLanzamiento);
         tr.appendChild(genero);
@@ -54,6 +63,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         tr.appendChild(sinapsis);
         tr.appendChild(director);
         tr.appendChild(imagen);
+        tr.appendChild(deleteButton);
+        tr.appendChild(updateButton);
 
         tbody.appendChild(tr);
 
