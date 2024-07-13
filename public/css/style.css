@@ -736,16 +736,29 @@ hr {
 }
 
 main {
-  height: 80vh;
+  height: 100%;
 }
 
-textarea {
+.sinapsis {
   width: 80vw;
 }
 
 table {
   border: #9f3647 1px solid;
+  width: 90vw;
+  text-align: center;
+  margin-top: 6vw;
+  border-collapse: collapse;
+}
 
+th {
+  border: none;
+}
+
+
+thead {
+  background-color: #9f3647;
+  height: 5vw;
 }
 
 .m-r {
